@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  yandexhelloworld:
+    image: ${DOCKER_REGISTRY-}yandexhelloworld
+    build:
+      context: .
+      dockerfile: YandexHelloWorld/Dockerfile
