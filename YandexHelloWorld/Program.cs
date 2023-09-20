@@ -8,7 +8,9 @@ public class Program
 
         // Add services to the container.
         builder.Services.AddControllers();
-        builder.WebHost.UseUrls("http://127.0.0.1:" + Environment.GetEnvironmentVariable("PORT"));
+        builder.WebHost.UseUrls(
+            "http://localhost:5058", // must match Properties/launchSettings.json/profiles/http/applicationUrl
+            "http://127.0.0.1:" + Environment.GetEnvironmentVariable("PORT")); // used for Yandex Serverless
 
         var app = builder.Build();
 
