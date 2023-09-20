@@ -6,10 +6,10 @@ EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
-COPY ["YandexHelloWorld/YandexHelloWorld.csproj", "YandexHelloWorld/"]
+COPY ["YandexHelloWorld.csproj", "YandexHelloWorld/"]
 RUN dotnet restore "YandexHelloWorld/YandexHelloWorld.csproj"
-COPY . .
 WORKDIR "/src/YandexHelloWorld"
+COPY . .
 RUN dotnet build "YandexHelloWorld.csproj" -c Release -o /app/build
 
 FROM build AS publish
