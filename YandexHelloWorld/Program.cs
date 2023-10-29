@@ -10,7 +10,8 @@ public class Program
         builder.Services.AddControllers();
         builder.WebHost.UseUrls(
             "http://localhost:5058", // must match Properties/launchSettings.json/profiles/http/applicationUrl
-            "http://127.0.0.1:" + Environment.GetEnvironmentVariable("PORT")); // used for Yandex Serverless
+            "http://0.0.0.0:" + Environment.GetEnvironmentVariable("PORT") // used for Yandex Serverless
+            ); 
 
         var app = builder.Build();
 
